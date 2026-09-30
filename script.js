@@ -4,7 +4,6 @@ const navLinks = document.querySelectorAll(".nav a");
 const animatedElements = document.querySelectorAll(".reveal");
 const currentYear = document.querySelector("#currentYear");
 
-// Abre e fecha o menu mobile
 menuButton.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("open");
 
@@ -13,7 +12,6 @@ menuButton.addEventListener("click", () => {
   menuButton.setAttribute("aria-expanded", String(isOpen));
 });
 
-// Fecha o menu quando algum link é clicado
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
@@ -23,7 +21,6 @@ navLinks.forEach((link) => {
   });
 });
 
-// Anima os elementos quando eles aparecem na tela
 const observer = new IntersectionObserver(
   (entries, observerInstance) => {
     entries.forEach((entry) => {
@@ -42,5 +39,4 @@ animatedElements.forEach((element) => {
   observer.observe(element);
 });
 
-// Atualiza o ano automaticamente no rodapé
 currentYear.textContent = new Date().getFullYear();
